@@ -1,0 +1,363 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom Properties, update these for your own design */
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #F2A649;
+    --clr-accent2: #388ECD;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/* General styles */
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+strong { font-weight: var(--fw-bold) }
+
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-light);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+.section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 2em;
+}
+
+/* header */
+
+header {
+    padding: 1em;
+    background-color: transparent;
+}
+
+/* navigation */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    max-width: 250px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 45%;
+}
+
+.nav-links li{
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--clr-dark);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    opacity: .6;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+    body {
+        overflow-x: hidden;
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 40%;
+        top: 8vh;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateY(-200%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .hamburger{
+        display: block;
+    }
+}
+
+.nav-active {
+    transform: translateY(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* services */
+
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url(../img/services-bg.jpg);
+    background-size: cover;
+    background-blend-mode: multiply; 
+    height: 97vh;
+    color: var(--clr-light);
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 600px;
+    padding-top: 56px;
+    padding-bottom: 55px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    /*
+    background-position: 50% 50%;
+    background-size: cover;
+    */
+    background-attachment: fixed;
+    opacity: 1;
+    text-align: center;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.my-services {
+    justify-content: center;
+    padding-top: 120px;
+}
+
+.services {
+    margin-bottom: 4em;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+.service {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+@media (min-width: 800px) {
+    .services {
+        max-width: 991px;
+        margin: 0 auto;
+    }
+    
+    .service + .service {
+        margin-left: 2em;
+    }
+}
+
+/*about*/
+.about-me {
+    background-color: var(--clr-light);
+    /*background-image: url(../img/services-bg.jpg);*/
+    background-size: cover;
+    /* background-blend-mode: multiply; */
+    color: var(--clr-dark);
+    text-align: center;
+}
+
+.section__title--about {
+    color: var(--clr-white);
+    position: relative;
+    margin: 0.5em auto 0.5em;
+}
+
+.about-me__body {
+    margin-bottom: 4em;
+}
+
+.about-me__body1 {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .about-me__body {
+        max-width: 991px;
+        margin: 0 auto;
+    }
+    
+    .about-me__body1 + .about-me__body1 {
+        margin-left: 2em;
+    }
+}
+
+/* My Work */
+
+.my-work {
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    text-align: center;    
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-gap: 10px;
+}
+
+.portfolio__item {
+    background: var(--clr-accent);
+    overflow: hidden;
+}
+
+.portfolio__img {
+    transition: 
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        opacity 250ms linear;
+}
+
+.portfolio__img:hover {
+    transform: scale(1.2);
+    opacity: .7;
+}
+
+
+/* footer */
+
+.footer {
+    background: #0B0B0B;
+    color: var(--clr-accent2);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+
+}
+
+.footer a { 
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
